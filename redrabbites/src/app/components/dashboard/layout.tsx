@@ -39,7 +39,7 @@ const Menus = () => {
   return (
     <div className='menu-demo' style={{ height: "100%" }}>
       <Menu
-        style={{ width: 200, height: '100%' }}
+        style={{ width: 250, height: '100%' }}
         hasCollapseButton
         defaultOpenKeys={['0']}
         defaultSelectedKeys={['0_1']}
@@ -91,3 +91,7 @@ const Menus = () => {
     </div>
   );
 };
+
+
+
+
