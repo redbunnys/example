@@ -15,7 +15,7 @@ export const metadata = {
 const DashBoardLayout: FC<DashBoardLayoutProps> = ({ children }) => {
     return (
         <>
-            <DashBoardLayouts children={children}/>
+            <DashBoardLayouts >{children} </DashBoardLayouts>
         </>
     );
 }
