@@ -21,6 +21,13 @@ type Animal struct {
 	AnimalID      int64 `gorm:"primary_key;column:animal_id;"`
 	Name          string
 	AnimalSpecies []AnimalSpecies `gorm:"many2many:animal_animal_species;"` //多对多
+	AddressID     int64
+}
+
+type Address struct {
+	AddressID int64 `gorm:"primary_key;column:address_id;"`
+	Detail    string
+	Animals   []Animal `gorm:"foreignkey:AddressID"` //(address)一对多(Animal)
 }
 
 type AnimalAnimalSpecies struct {
@@ -47,4 +54,11 @@ func Many2Many() {
 	models.Db.Create(&A4)
 	models.Db.Create(&A5)
 
+}
+
+func Preload() {
+	var Ad []Address
+	// Address ->  Animal 一对多关系。 Animal->AnimalSpecies 多对多关系
+	//s使用下面的语句直接查询三张表，从addressb包含nimal, Animal包含AnimalSpecies
+	models.Db.Preload("Animal.AnimalSpecies").Find(&Ad)
 }

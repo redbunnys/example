@@ -7,7 +7,7 @@ import "gormdemo/models"
 type Animal struct {
 	AnimalID int64 `gorm:"primary_key;column:animal_id"`
 	Name     string
-	//foreignkey:AnimalID 指定外键
+	//foreignkey:AnimalID 指定外键,这里是AnimalSpecies表中的AnimalID字段
 	AnimalSpecies []AnimalSpecies `gorm:"foreignkey:AnimalID"`
 }
 
